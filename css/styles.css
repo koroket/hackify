@@ -1,0 +1,11 @@
+#main-container {
+	text-align: center;
+}
+
+#download {
+	cursor: pointer;
+}
+
+#download:hover {
+	color: grey;
+}

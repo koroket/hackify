@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Hackify Picture</title>
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+<body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '745324348933960',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+// Only works after `FB.init` is called
+function myFacebookLogin() {
+  FB.login(function(){}, {scope: 'publish_actions'});
+}
+</script>
+<button onclick="myFacebookLogin()">Login with Facebook</button>
+<!-- Create button and Download button -->
+
+	<p>
+		<div id="create-button" class="fileUpload btn btn-primary btn-lg">
+		<span>Create!</span>
+		<input type="file" class="upload" id="file-upload" id="activator" style="width: 100px"/>
+		</div>
+	</p>
+
+	<div id="download-button" class="before-upload">
+		<div class="fileUpload btn btn-primary btn-lg">
+			<a id="download" download="hackfy.jpg">Download</a>
+		</div>
+	</div>
+
+	<canvas id="canvas" class="before-upload" data-caman-hidpi-disabled="true" style="width: 60%"></canvas>
+</body>
+</html>
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/main.js"></script>

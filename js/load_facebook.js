@@ -30,27 +30,25 @@ function facebookLogin() {
 function loadFBProfileImage(fbid) {
 	var canvas = $('#fb-img').get(0);
 	var ctx = canvas.getContext('2d');
-
-	var img = new Image;
-	img.crossOrigin = "Anonymous"; 
-	img.onload = function(){
-		ctx.drawImage(img,0,0);
-		$('#fb-loggedout').hide();
-		$('#fb-loggedin').show();
-		processNewImage();
-	};
-	img.src = 'https://graph.facebook.com/' + 
-		fbid + '/picture?width=500&height=500';
+  ctx.globalCompositeOperation = "soft_light"
+  var image = new Image();
+  image.src = "https://graph.facebook.com/' +
+		fbid + '/picture?width=500&height=500";
+  image.onload = function() {
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    context.fillStyle = "#362487";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  }
 }
-
+/*
 function processNewImage() {
 	var canvas = $('#fb-img').get(0);
 	var ctx = canvas.getContext('2d');
-	 
+
 	ctx.globalCompositeOperation = 'soft-light';
-	var hack_img = $('#hack-overlay').get(0); 
+	var hack_img = $('#hack-overlay').get(0);
 	ctx.drawImage(hack_img,0,0);
 	$('#download').on('click', function(){
 		this.href = canvas.toDataURL();
 	});
-}
+}*/

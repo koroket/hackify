@@ -31,6 +31,7 @@ function loadFBProfileImage(fbid) {
   var loadeds = [false, false]
 	var canvas = $('#fb-img').get(0);
 	var ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.globalCompositeOperation = "soft-light"
   var image = new Image();
   image.crossOrigin = "Anonymous"
